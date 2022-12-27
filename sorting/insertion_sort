@@ -1,0 +1,39 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>;
+#include<vector>;
+using namespace std;
+
+void swap(vector<int>&sorting, int x, int y){
+    int temp=sorting[x];
+    sorting[x]=sorting[y];
+    sorting[y]=temp;
+}
+
+void insertion_sorting(vector<int>&sorting)
+{
+    for(int i=1;i<sorting.size();i++)
+    {
+        int j=i-1;
+        while(j>=0 && sorting[j]>sorting[i]){
+             swap(sorting,j,i );
+             i=j;
+             j--;
+             
+        }
+    }
+}
+ void display(vector<int>sorting){
+     for(int i=0;i<sorting.size();i++){
+         cout<<sorting[i]<<"  ";
+     }
+ }
+
+int main() {
+    vector<int>sorting={7,9,4,5,3,1};
+
+    insertion_sorting(sorting);
+    display(sorting);
+    
+
+    return 0;
+}

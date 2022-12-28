@@ -1,0 +1,51 @@
+
+#include <iostream>
+#include<vector>
+using namespace std;
+ 
+ void swap(vector<int>&sorting , int a, int b){
+     int temp=sorting[a];
+     sorting[a]=sorting[b];
+     sorting[b]=temp;
+ }
+ 
+ int min_index(vector<int>sorting , int start)
+ {
+     int min=start;
+     for(int i=start;i<sorting.size();i++)
+     {
+         if(sorting[min]>sorting[i])
+         {
+             min=i;
+         }
+     }
+     return min;
+ }
+ 
+ void selection_sorting(vector<int>&sorting)
+ {
+    
+     
+     for(int i=0;i<sorting.size();i++){
+      int index=min_index(sorting,i);   
+        
+             swap(sorting , i ,index);
+         
+     }
+ }
+ void display(vector<int>sorting)
+ {
+     for(int i=0;i<sorting.size();i++)
+     {
+         cout<<sorting[i]<<" ";
+     }
+ }
+
+int main() {
+    vector<int>sorting={7,3,5,8,1,9};
+    
+    selection_sorting(sorting);
+    display(sorting);
+    
+    return 0;
+}
